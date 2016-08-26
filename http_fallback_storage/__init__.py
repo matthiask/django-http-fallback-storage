@@ -24,11 +24,13 @@ def download_before_call(method):
             except Exception as exc:
                 print(colorize(exc, fg='red'))
 
-            dirname = os.path.dirname(local)
-            if not os.path.exists(dirname):
-                os.makedirs(os.path.dirname(local))
-            with io.open(local, 'wb') as f:
-                f.write(data.content)
+            if data.status_code == 200:
+                dirname = os.path.dirname(local)
+                if not os.path.exists(dirname):
+                    os.makedirs(os.path.dirname(local))
+                with io.open(local, 'wb') as f:
+                    f.write(data.content)
+
         return method(self, name, *args, **kwargs)
 
     return _fn

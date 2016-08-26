@@ -5,11 +5,13 @@ Change log
 `Next version`_
 ~~~~~~~~~~~~~~~
 
+- Only write response data to the disk if HTTP status code is 200.
 
-`0.1`_ (2016-08-26)
+
+`1.0`_ (2016-08-26)
 ~~~~~~~~~~~~~~~~~~~
 
 - Initial release!
 
-.. _0.1: https://github.com/matthiask/django-http-fallback-storage/commit/9f421bb48
-.. _Next version: https://github.com/matthiask/django-http-fallback-storage/compare/0.1...master
+.. _1.0: https://github.com/matthiask/django-http-fallback-storage/commit/eaf1510905
+.. _Next version: https://github.com/matthiask/django-http-fallback-storage/compare/1.0...master
