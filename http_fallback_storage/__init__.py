@@ -23,13 +23,13 @@ def download_before_call(method):
                 data = requests.get(remote)
             except Exception as exc:
                 print(colorize(exc, fg='red'))
-
-            if data.status_code == 200:
-                dirname = os.path.dirname(local)
-                if not os.path.exists(dirname):
-                    os.makedirs(os.path.dirname(local))
-                with io.open(local, 'wb') as f:
-                    f.write(data.content)
+            else:
+                if data.status_code == 200:
+                    dirname = os.path.dirname(local)
+                    if not os.path.exists(dirname):
+                        os.makedirs(os.path.dirname(local))
+                    with io.open(local, 'wb') as f:
+                        f.write(data.content)
 
         return method(self, name, *args, **kwargs)
 

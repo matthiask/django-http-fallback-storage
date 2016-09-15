@@ -6,6 +6,7 @@ Change log
 ~~~~~~~~~~~~~~~
 
 - Only write response data to the disk if HTTP status code is 200.
+- Only access response data if there actually was a response.
 
 
 `1.0`_ (2016-08-26)
