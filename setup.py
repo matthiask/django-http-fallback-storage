@@ -13,7 +13,7 @@ def read(filename):
 
 setup(
     name='django-http-fallback-storage',
-    version='1.0.2',
+    version='1.1',
     description='',
     long_description=read('README.rst'),
     author='Matthias Kestenholz',
@@ -21,7 +21,7 @@ setup(
     url='https://github.com/matthiask/django-http-fallback-storage/',
     license='BSD License',
     platforms=['OS Independent'],
-    modules=['http_fallback_storage'],
+    py_modules=['http_fallback_storage'],
     # packages=find_packages(
     #     exclude=['tests', 'testapp']
     # ),
