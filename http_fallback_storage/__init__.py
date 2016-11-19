@@ -1,3 +1,5 @@
+from __future__ import unicode_literals
+
 from functools import wraps
 import io
 import os
@@ -16,7 +18,7 @@ def download_before_call(method):
         if not os.path.exists(local):
             remote = urljoin(settings.FALLBACK_STORAGE_URL, name)
             print(colorize(
-                'Attempting download %r -> %r' % (remote, name),
+                "Attempting download '%s' -> '%s'" % (remote, name),
                 fg='blue',
             ))
             try:
