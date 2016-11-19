@@ -21,10 +21,11 @@ setup(
     url='https://github.com/matthiask/django-http-fallback-storage/',
     license='BSD License',
     platforms=['OS Independent'],
-    packages=find_packages(
-        exclude=['tests', 'testapp']
-    ),
-    include_package_data=True,
+    modules=['http_fallback_storage'],
+    # packages=find_packages(
+    #     exclude=['tests', 'testapp']
+    # ),
+    # include_package_data=True,
     # install_requires=[
     #     'Django',
     #     'django-ckeditor',
