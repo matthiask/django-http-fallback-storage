@@ -12,6 +12,7 @@ Usage
 =====
 
 0. Make sure that you only use this if ``DEBUG = True``
-1. Add ``DEFAULT_FILE_STORAGE = 'http_fallback_storage.FallbackStorage``
-   and ``FALLBACK_STORAGE_URL = 'http://example.com/media/'`` to your
-   Django settings
+1. Add the following settings::
+
+    ``DEFAULT_FILE_STORAGE = 'http_fallback_storage.FallbackStorage'``
+    ``FALLBACK_STORAGE_URL = 'http://example.com/media/'``
