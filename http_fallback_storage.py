@@ -13,11 +13,11 @@ from django.utils.termcolors import colorize
 try:
     from functools import lru_cache
 except ImportError:
-    from django.utils import lru_cache
+    from django.utils.lru_cache import lru_cache
 
 
 def download_before_call(method):
-    @lru_cache.lru_cache()
+    @lru_cache()
     @wraps(method)
     def _fn(self, name, *args, **kwargs):
         local = os.path.join(settings.MEDIA_ROOT, name)
