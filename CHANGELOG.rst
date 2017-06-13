@@ -5,6 +5,10 @@ Change log
 `Next version`_
 ~~~~~~~~~~~~~~~
 
+- Removed the cache again. It lead to strange errors with accessing
+  closed files.
+
+
 `1.2`_ (2017-06-06)
 ~~~~~~~~~~~~~~~~~~~
 
