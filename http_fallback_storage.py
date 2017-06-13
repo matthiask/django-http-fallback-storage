@@ -10,14 +10,8 @@ from django.core.files.storage import FileSystemStorage
 from django.utils.six.moves.urllib.parse import urljoin
 from django.utils.termcolors import colorize
 
-try:
-    from functools import lru_cache
-except ImportError:
-    from django.utils.lru_cache import lru_cache
-
 
 def download_before_call(method):
-    @lru_cache()
     @wraps(method)
     def _fn(self, name, *args, **kwargs):
         local = os.path.join(settings.MEDIA_ROOT, name)
