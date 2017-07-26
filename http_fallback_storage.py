@@ -1,5 +1,6 @@
 from __future__ import unicode_literals
 
+import logging
 from functools import wraps
 import io
 import os
@@ -8,7 +9,8 @@ import requests
 from django.conf import settings
 from django.core.files.storage import FileSystemStorage
 from django.utils.six.moves.urllib.parse import urljoin
-from django.utils.termcolors import colorize
+
+logger = logging.getLogger(__name__)
 
 
 def download_before_call(method):
@@ -17,14 +19,11 @@ def download_before_call(method):
         local = os.path.join(settings.MEDIA_ROOT, name)
         if not os.path.exists(local):
             remote = urljoin(settings.FALLBACK_STORAGE_URL, name)
-            print(colorize(
-                "Attempting download '%s' -> '%s'" % (remote, name),
-                fg='blue',
-            ))
+            logger.debug("Attempting download '%s' -> '%s'", remote, name)
             try:
                 data = requests.get(remote)
             except Exception as exc:
-                print(colorize(exc, fg='red'))
+                logger.exception("Error while downloading %s: %s", remote, exc)
             else:
                 if data.status_code == 200:
                     dirname = os.path.dirname(local)
