@@ -10,6 +10,7 @@ from django.conf import settings
 from django.core.files.storage import FileSystemStorage
 from django.utils.six.moves.urllib.parse import urljoin
 
+
 logger = logging.getLogger(__name__)
 
 

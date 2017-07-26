@@ -7,6 +7,7 @@ Change log
 
 - Removed the cache again. It lead to strange errors with accessing
   closed files.
+- Switched from print() statements to logging.
 
 
 `1.2`_ (2017-06-06)

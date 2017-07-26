@@ -2,7 +2,7 @@
 
 from io import open
 import os
-from setuptools import setup, find_packages
+from setuptools import setup
 
 
 def read(filename):
@@ -22,21 +22,7 @@ setup(
     license='BSD License',
     platforms=['OS Independent'],
     py_modules=['http_fallback_storage'],
-    # packages=find_packages(
-    #     exclude=['tests', 'testapp']
-    # ),
-    # include_package_data=True,
-    # install_requires=[
-    #     'Django',
-    #     'django-ckeditor',
-    #     'django-content-editor',
-    #     'django-mptt-nomagic',  # For now!
-    #     'django-versatileimagefield',
-    #     'feincms-cleanse',
-    #     'requests',
-    # ],
     classifiers=[
-        # 'Development Status :: 5 - Production/Stable',
         'Environment :: Web Environment',
         'Framework :: Django',
         'Intended Audience :: Developers',
