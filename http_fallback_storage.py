@@ -1,8 +1,8 @@
 from __future__ import unicode_literals
 
-import logging
 from functools import wraps
 import io
+import logging
 import os
 import requests
 

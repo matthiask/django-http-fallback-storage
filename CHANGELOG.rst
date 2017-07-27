@@ -7,7 +7,10 @@ Change log
 
 - Removed the cache again. It lead to strange errors with accessing
   closed files.
-- Switched from print() statements to logging.
+- Switched from print() statements to logging. If you want the old
+  behavior you should use ``http_fallback_storage.LOGGING`` as your
+  Django ``LOGGING`` configuration (or merge the logging configuration
+  dicts).
 
 
 `1.2`_ (2017-06-06)

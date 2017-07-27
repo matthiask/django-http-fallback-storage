@@ -16,3 +16,16 @@ Usage
 
     DEFAULT_FILE_STORAGE = 'http_fallback_storage.FallbackStorage'
     FALLBACK_STORAGE_URL = 'http://example.com/media/'
+
+2. Optionally, configure logging so that it's easy to see why page loads
+   would be slow when fetching media files. Either of the following
+   snippets should be fine when added to your settings file::
+
+    import http_fallback_storage
+    LOGGING = http_fallback_storage.LOGGING
+
+   or::
+
+    # LOGGING has already been defined
+    import http_fallback_storage
+    LOGGING.update(http_fallback_storage.LOGGING)
