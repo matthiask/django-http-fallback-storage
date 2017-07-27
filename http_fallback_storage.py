@@ -9,6 +9,7 @@ import requests
 from django.conf import settings
 from django.core.files.storage import FileSystemStorage
 from django.utils.six.moves.urllib.parse import urljoin
+from django.utils.termcolors import colorize
 
 
 logger = logging.getLogger(__name__)
@@ -44,3 +45,36 @@ class FallbackStorage(FileSystemStorage):
     exists = download_before_call(FileSystemStorage.exists)
     size = download_before_call(FileSystemStorage.size)
     url = download_before_call(FileSystemStorage.url)
+
+
+class ColorizingFormatter(logging.Formatter):
+    def format(self, record):
+        if record.levelno in (40, 50):
+            record.msg = colorize(record.msg, fg='red')
+        else:
+            record.msg = colorize(record.msg, fg='blue')
+        return super().format(record)
+
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'http_fallback_storage': {
+            '()': ColorizingFormatter,
+        },
+    },
+    'handlers': {
+        'http_fallback_storage_console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+            'formatter': 'http_fallback_storage',
+        },
+    },
+    'loggers': {
+        'http_fallback_storage': {
+            'level': 'DEBUG',
+            'handlers': ['http_fallback_storage_console'],
+        },
+    },
+}
