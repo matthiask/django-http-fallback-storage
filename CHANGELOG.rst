@@ -5,6 +5,9 @@ Change log
 `Next version`_
 ~~~~~~~~~~~~~~~
 
+`1.3`_ (2017-07-27)
+~~~~~~~~~~~~~~~~~~~
+
 - Removed the cache again. It lead to strange errors with accessing
   closed files.
 - Switched from print() statements to logging. If you want the old
@@ -36,4 +39,5 @@ Change log
 .. _1.0: https://github.com/matthiask/django-http-fallback-storage/commit/eaf1510905
 .. _1.1: https://github.com/matthiask/django-http-fallback-storage/compare/1.0...1.1
 .. _1.2: https://github.com/matthiask/django-http-fallback-storage/compare/1.1...1.2
-.. _Next version: https://github.com/matthiask/django-http-fallback-storage/compare/1.2...master
+.. _1.3: https://github.com/matthiask/django-http-fallback-storage/compare/1.2...1.3
+.. _Next version: https://github.com/matthiask/django-http-fallback-storage/compare/1.3...master
