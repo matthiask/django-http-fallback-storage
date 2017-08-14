@@ -5,6 +5,9 @@ Change log
 `Next version`_
 ~~~~~~~~~~~~~~~
 
+- Added timeouts to downloads.
+
+
 `1.3`_ (2017-07-27)
 ~~~~~~~~~~~~~~~~~~~
 

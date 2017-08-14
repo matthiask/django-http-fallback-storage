@@ -23,7 +23,7 @@ def download_before_call(method):
             remote = urljoin(settings.FALLBACK_STORAGE_URL, name)
             logger.debug("Attempting download '%s' -> '%s'", remote, name)
             try:
-                data = requests.get(remote)
+                data = requests.get(remote, timeout=5)
             except Exception as exc:
                 logger.exception("Error while downloading %s: %s", remote, exc)
             else:
