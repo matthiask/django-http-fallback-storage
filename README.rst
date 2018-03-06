@@ -29,3 +29,8 @@ Usage
     # LOGGING has already been defined
     import http_fallback_storage
     LOGGING.update(http_fallback_storage.LOGGING)
+
+3. Optionally, specify a regular expression for skipping file downloads,
+   e.g. the following regex to never download movies::
+
+    FALLBACK_STORAGE_SKIP = r'(\.mp4|\.mov)$'
