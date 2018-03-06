@@ -6,6 +6,11 @@ Change log
 ~~~~~~~~~~~~~~~
 
 - Added timeouts to downloads.
+- Added the ``FALLBACK_STORAGE_SKIP`` setting which allows specifying a
+  regular expression which, if it matches the filename, skips the fallback.
+  If set to ``FALLBACK_STORAGE_SKIP = r'^test$'``, this avoids problems
+  introduced e.g. by `easy-thumbnails
+  <https://github.com/SmileyChris/easy-thumbnails/blob/c4483dc44cb748749df420d9cd1f57fb4fac469b/easy_thumbnails/utils.py#L67>`_.
 
 
 `1.3`_ (2017-07-27)

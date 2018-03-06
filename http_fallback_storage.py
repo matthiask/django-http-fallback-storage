@@ -4,6 +4,7 @@ from functools import wraps
 import io
 import logging
 import os
+import re
 import requests
 
 from django.conf import settings
@@ -14,13 +15,21 @@ from django.utils.termcolors import colorize
 
 logger = logging.getLogger(__name__)
 
+base_url = settings.FALLBACK_STORAGE_URL
+skip_re = getattr(settings, 'FALLBACK_STORAGE_SKIP', None)
+
 
 def download_before_call(method):
     @wraps(method)
     def _fn(self, name, *args, **kwargs):
+        if skip_re and re.search(skip_re, name):
+            return method(self, name, *args, **kwargs)
+
         local = os.path.join(settings.MEDIA_ROOT, name)
         if not os.path.exists(local):
-            remote = urljoin(settings.FALLBACK_STORAGE_URL, name)
+            remote = urljoin(base_url, name)
+            import traceback
+            traceback.print_stack()
             logger.debug("Attempting download '%s' -> '%s'", remote, name)
             try:
                 data = requests.get(remote, timeout=5)
