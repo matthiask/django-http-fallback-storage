@@ -21,10 +21,14 @@ Usage
    would be slow when fetching media files. Either of the following
    snippets should be fine when added to your settings file::
 
+    FALLBACK_STORAGE_LOGGING = True
+
     import http_fallback_storage
     LOGGING = http_fallback_storage.LOGGING
 
    or::
+
+    FALLBACK_STORAGE_LOGGING = True
 
     # LOGGING has already been defined
     import http_fallback_storage
