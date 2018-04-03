@@ -5,6 +5,17 @@ Change log
 `Next version`_
 ~~~~~~~~~~~~~~~
 
+
+`1.4`_ (2018-04-03)
+~~~~~~~~~~~~~~~~~~~
+
+- Reverted back to `print()`-ing by default. Set
+  ``FALLBACK_STORAGE_LOGGING`` to ``True`` if ``http_fallback_storage``
+  should use the ``logging`` module instead. The reason for this is that
+  the ``logging`` behavior is a bit less obvious in that the reason for
+  a hanging development server is only visible if ``LOGGING`` is
+  configured correctly (which isn't hard to do, but still is something
+  that is overlooked too often).
 - Added timeouts to downloads.
 - Added the ``FALLBACK_STORAGE_SKIP`` setting which allows specifying a
   regular expression which, if it matches the filename, skips the fallback.
@@ -48,4 +59,5 @@ Change log
 .. _1.1: https://github.com/matthiask/django-http-fallback-storage/compare/1.0...1.1
 .. _1.2: https://github.com/matthiask/django-http-fallback-storage/compare/1.1...1.2
 .. _1.3: https://github.com/matthiask/django-http-fallback-storage/compare/1.2...1.3
-.. _Next version: https://github.com/matthiask/django-http-fallback-storage/compare/1.3...master
+.. _1.4: https://github.com/matthiask/django-http-fallback-storage/compare/1.3...1.4
+.. _Next version: https://github.com/matthiask/django-http-fallback-storage/compare/1.4...master
