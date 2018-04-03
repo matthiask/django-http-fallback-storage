@@ -13,10 +13,20 @@ from django.utils.six.moves.urllib.parse import urljoin
 from django.utils.termcolors import colorize
 
 
-logger = logging.getLogger(__name__)
-
 base_url = settings.FALLBACK_STORAGE_URL
 skip_re = getattr(settings, 'FALLBACK_STORAGE_SKIP', None)
+
+if getattr(settings, 'FALLBACK_STORAGE_LOGGING', False):
+    logger = logging.getLogger(__name__)
+    debug = logger.debug
+    error = logger.exception
+
+else:
+    def debug(msg, *args):
+        print(colorize(msg % args, fg='blue'))
+
+    def error(msg, *args):
+        print(colorize(msg % args, fg='red'))
 
 
 def download_before_call(method):
@@ -28,11 +38,11 @@ def download_before_call(method):
         local = os.path.join(settings.MEDIA_ROOT, name)
         if not os.path.exists(local):
             remote = urljoin(base_url, name)
-            logger.debug("Attempting download '%s' -> '%s'", remote, name)
+            debug("Attempting download '%s' -> '%s'", remote, name)
             try:
                 data = requests.get(remote, timeout=5)
             except Exception as exc:
-                logger.exception("Error while downloading %s: %s", remote, exc)
+                error("Error while downloading %s: %s", remote, exc)
             else:
                 if data.status_code == 200:
                     dirname = os.path.dirname(local)
