@@ -14,19 +14,20 @@ from django.utils.termcolors import colorize
 
 
 base_url = settings.FALLBACK_STORAGE_URL
-skip_re = getattr(settings, 'FALLBACK_STORAGE_SKIP', None)
+skip_re = getattr(settings, "FALLBACK_STORAGE_SKIP", None)
 
-if getattr(settings, 'FALLBACK_STORAGE_LOGGING', False):
+if getattr(settings, "FALLBACK_STORAGE_LOGGING", False):
     logger = logging.getLogger(__name__)
     debug = logger.debug
     error = logger.exception
 
 else:
+
     def debug(msg, *args):
-        print(colorize(msg % args, fg='blue'))
+        print(colorize(msg % args, fg="blue"))
 
     def error(msg, *args):
-        print(colorize(msg % args, fg='red'))
+        print(colorize(msg % args, fg="red"))
 
 
 def download_before_call(method):
@@ -48,7 +49,7 @@ def download_before_call(method):
                     dirname = os.path.dirname(local)
                     if not os.path.exists(dirname):
                         os.makedirs(os.path.dirname(local))
-                    with io.open(local, 'wb') as f:
+                    with io.open(local, "wb") as f:
                         f.write(data.content)
 
         return method(self, name, *args, **kwargs)
@@ -67,31 +68,27 @@ class FallbackStorage(FileSystemStorage):
 class ColorizingFormatter(logging.Formatter):
     def format(self, record):
         if record.levelno in (40, 50):
-            record.msg = colorize(record.msg, fg='red')
+            record.msg = colorize(record.msg, fg="red")
         else:
-            record.msg = colorize(record.msg, fg='blue')
+            record.msg = colorize(record.msg, fg="blue")
         return super().format(record)
 
 
 LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'formatters': {
-        'http_fallback_storage': {
-            '()': ColorizingFormatter,
-        },
+    "version": 1,
+    "disable_existing_loggers": False,
+    "formatters": {"http_fallback_storage": {"()": ColorizingFormatter}},
+    "handlers": {
+        "http_fallback_storage_console": {
+            "level": "DEBUG",
+            "class": "logging.StreamHandler",
+            "formatter": "http_fallback_storage",
+        }
     },
-    'handlers': {
-        'http_fallback_storage_console': {
-            'level': 'DEBUG',
-            'class': 'logging.StreamHandler',
-            'formatter': 'http_fallback_storage',
-        },
-    },
-    'loggers': {
-        'http_fallback_storage': {
-            'level': 'DEBUG',
-            'handlers': ['http_fallback_storage_console'],
-        },
+    "loggers": {
+        "http_fallback_storage": {
+            "level": "DEBUG",
+            "handlers": ["http_fallback_storage_console"],
+        }
     },
 }

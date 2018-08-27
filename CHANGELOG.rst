@@ -5,6 +5,10 @@ Change log
 `Next version`_
 ~~~~~~~~~~~~~~~
 
+- Fixed the package to automatically install the ``requests``
+  dependency.
+- Reformatted the code using `black <https://github.com/ambv/black>`__.
+
 
 `1.4`_ (2018-04-03)
 ~~~~~~~~~~~~~~~~~~~
