@@ -13,7 +13,7 @@ def read(filename):
 
 setup(
     name="django-http-fallback-storage",
-    version="1.4",
+    version="1.5",
     description="",
     long_description=read("README.rst"),
     author="Matthias Kestenholz",
