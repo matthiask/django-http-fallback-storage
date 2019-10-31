@@ -5,6 +5,9 @@ Change log
 `Next version`_
 ~~~~~~~~~~~~~~~
 
+`1.6`_ (2019-10-31)
+~~~~~~~~~~~~~~~~~~~
+
 - Dropped compatibility with Python 2.
 
 
