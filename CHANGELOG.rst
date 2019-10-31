@@ -73,4 +73,6 @@ Change log
 .. _1.2: https://github.com/matthiask/django-http-fallback-storage/compare/1.1...1.2
 .. _1.3: https://github.com/matthiask/django-http-fallback-storage/compare/1.2...1.3
 .. _1.4: https://github.com/matthiask/django-http-fallback-storage/compare/1.3...1.4
-.. _Next version: https://github.com/matthiask/django-http-fallback-storage/compare/1.4...master
+.. _1.5: https://github.com/matthiask/django-http-fallback-storage/compare/1.4...1.5
+.. _1.6: https://github.com/matthiask/django-http-fallback-storage/compare/1.5...1.6
+.. _Next version: https://github.com/matthiask/django-http-fallback-storage/compare/1.6...master
