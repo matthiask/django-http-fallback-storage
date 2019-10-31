@@ -5,6 +5,12 @@ Change log
 `Next version`_
 ~~~~~~~~~~~~~~~
 
+- Dropped compatibility with Python 2.
+
+
+`1.5`_ (2018-08-27)
+~~~~~~~~~~~~~~~~~~~
+
 - Fixed the package to automatically install the ``requests``
   dependency.
 - Reformatted the code using `black <https://github.com/ambv/black>`__.

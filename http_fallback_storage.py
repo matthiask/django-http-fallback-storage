@@ -1,15 +1,13 @@
-from __future__ import unicode_literals
-
 from functools import wraps
 import io
 import logging
 import os
 import re
 import requests
+from urllib.parse import urljoin
 
 from django.conf import settings
 from django.core.files.storage import FileSystemStorage
-from django.utils.six.moves.urllib.parse import urljoin
 from django.utils.termcolors import colorize
 
 
