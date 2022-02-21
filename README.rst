@@ -12,21 +12,27 @@ Usage
 =====
 
 0. Make sure that you only use this if ``DEBUG = True``
-1. Add the following settings::
+1. Add the following settings:
+
+   .. code-block:: python
 
     DEFAULT_FILE_STORAGE = 'http_fallback_storage.FallbackStorage'
     FALLBACK_STORAGE_URL = 'http://example.com/media/'
 
 2. Optionally, configure logging so that it's easy to see why page loads
    would be slow when fetching media files. Either of the following
-   snippets should be fine when added to your settings file::
+   snippets should be fine when added to your settings file:
 
+   .. code-block:: python
+   
     FALLBACK_STORAGE_LOGGING = True
 
     import http_fallback_storage
     LOGGING = http_fallback_storage.LOGGING
 
-   or::
+   or:
+
+   .. code-block:: python
 
     FALLBACK_STORAGE_LOGGING = True
 
@@ -35,6 +41,8 @@ Usage
     LOGGING.update(http_fallback_storage.LOGGING)
 
 3. Optionally, specify a regular expression for skipping file downloads,
-   e.g. the following regex to never download movies::
+   e.g. the following regex to never download movies:
+
+   .. code-block:: python
 
     FALLBACK_STORAGE_SKIP = r'(\.mp4|\.mov)$'
